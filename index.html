@@ -3,67 +3,150 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Simple Navbar</title>
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      font-family: Arial, sans-serif;
-      background: #f7f8fc;
-    }
-
-    .navbar {
-      background: #1f2937;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 14px 28px;
-      flex-wrap: wrap;
-      gap: 12px;
-    }
-
-    .brand {
-      color: #ffffff;
-      text-decoration: none;
-      font-size: 1.2rem;
-      font-weight: 700;
-    }
-
-    .nav-links {
-      list-style: none;
-      display: flex;
-      gap: 18px;
-      flex-wrap: wrap;
-    }
-
-    .nav-links a {
-      color: #e5e7eb;
-      text-decoration: none;
-      font-size: 0.95rem;
-      padding: 6px 8px;
-      border-radius: 6px;
-      transition: background-color 0.2s ease, color 0.2s ease;
-    }
-
-    .nav-links a:hover {
-      background: #374151;
-      color: #ffffff;
-    }
-  </style>
+  <title>BrightBox — Colorful finds, delivered</title>
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
   <nav class="navbar">
-    <a href="#" class="brand">MyWebsite</a>
+    <a href="#" class="brand">BrightBox</a>
     <ul class="nav-links">
-      <li><a href="#">Home</a></li>
-      <li><a href="#">About</a></li>
-      <li><a href="#">Services</a></li>
-      <li><a href="#">Contact</a></li>
+      <li><a href="#shop">Shop</a></li>
+      <li><a href="#deals">Deals</a></li>
+      <li><a href="#contact">Contact</a></li>
+      <li><a href="#shop" class="nav-cta">Cart</a></li>
     </ul>
   </nav>
+
+  <header class="hero">
+    <span class="hero-badge">New season drop</span>
+    <h1>Stuff you’ll love — in every color of the rainbow</h1>
+    <p>
+      Curated gadgets, cozy picks, and bold accessories. Fair prices, fast shipping,
+      and a shop that feels as fun as unboxing day.
+    </p>
+    <div class="hero-buttons">
+      <a href="#shop" class="btn btn-primary">Browse products</a>
+      <a href="#deals" class="btn btn-secondary">See today’s deals</a>
+    </div>
+  </header>
+
+  <div class="promo" id="deals">
+    <h2>Weekend flash: 20% off orders over $50</h2>
+    <p>Use code COLOR20 at checkout. Ends Sunday midnight.</p>
+    <a href="#shop" class="btn">Shop the sale</a>
+  </div>
+
+  <section class="products" id="shop">
+    <h2 class="section-title">Featured products</h2>
+    <p class="section-sub">Tap-worthy picks our customers buy again and again.</p>
+    <div class="product-grid">
+      <article class="product-card">
+        <div class="product-visual">
+          <span class="product-badge">Hot</span>
+          ☀️
+        </div>
+        <div class="product-body">
+          <h3>Sunny Bluetooth speaker</h3>
+          <p>Water-resistant, 12-hour battery, punchy bass for picnics and patios.</p>
+          <div class="product-footer">
+            <span class="price">$49.99</span>
+            <button type="button" class="btn-cart">Add to cart</button>
+          </div>
+        </div>
+      </article>
+      <article class="product-card">
+        <div class="product-visual">
+          🌿
+        </div>
+        <div class="product-body">
+          <h3>Forest desk plant set</h3>
+          <p>Three low-maintenance pots with a bamboo tray — workspace zen in a box.</p>
+          <div class="product-footer">
+            <span class="price">$34.00</span>
+            <button type="button" class="btn-cart">Add to cart</button>
+          </div>
+        </div>
+      </article>
+      <article class="product-card">
+        <div class="product-visual">
+          <span class="product-badge">New</span>
+          ⌚
+        </div>
+        <div class="product-body">
+          <h3>Silver smart watch</h3>
+          <p>Heart rate, sleep tracking, and customizable faces in a slim metal frame.</p>
+          <div class="product-footer">
+            <span class="price">$129.00</span>
+            <button type="button" class="btn-cart">Add to cart</button>
+          </div>
+        </div>
+      </article>
+      <article class="product-card">
+        <div class="product-visual">
+          🎧
+        </div>
+        <div class="product-body">
+          <h3>Coral noise-canceling buds</h3>
+          <p>Crystal calls, comfy fit, and a charging case that lasts all week.</p>
+          <div class="product-footer">
+            <span class="price">$79.95</span>
+            <button type="button" class="btn-cart">Add to cart</button>
+          </div>
+        </div>
+      </article>
+      <article class="product-card">
+        <div class="product-visual">
+          💧
+        </div>
+        <div class="product-body">
+          <h3>Sky insulated bottle</h3>
+          <p>Keeps drinks cold 24 hours — stainless steel, leak-proof, gym-bag ready.</p>
+          <div class="product-footer">
+            <span class="price">$28.50</span>
+            <button type="button" class="btn-cart">Add to cart</button>
+          </div>
+        </div>
+      </article>
+      <article class="product-card">
+        <div class="product-visual">
+          <span class="product-badge">Sale</span>
+          🔥
+        </div>
+        <div class="product-body">
+          <h3>Ember portable grill</h3>
+          <p>Compact charcoal grill for balconies — folds flat when the party’s over.</p>
+          <div class="product-footer">
+            <span class="price">$89.00</span>
+            <button type="button" class="btn-cart">Add to cart</button>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <footer class="site-footer" id="contact">
+    <div class="footer-inner">
+      <div>
+        <strong>BrightBox</strong>
+        <p>We ship colorful goods with a smile. Questions? We’re here Mon–Fri.</p>
+      </div>
+      <div>
+        <strong>Help</strong>
+        <ul class="footer-links">
+          <li><a href="#">Shipping</a></li>
+          <li><a href="#">Returns</a></li>
+          <li><a href="#">FAQ</a></li>
+        </ul>
+      </div>
+      <div>
+        <strong>Contact</strong>
+        <ul class="footer-links">
+          <li><a href="mailto:hello@brightbox.example">hello@brightbox.example</a></li>
+          <li><a href="#">1-800-BRIGHT-0</a></li>
+        </ul>
+      </div>
+    </div>
+    <p class="footer-bottom">© 2026 BrightBox. All rights reserved.</p>
+  </footer>
 </body>
 </html>
