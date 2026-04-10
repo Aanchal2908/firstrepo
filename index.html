@@ -13,7 +13,7 @@
       <li><a href="#shop">Shop</a></li>
       <li><a href="#deals">Deals</a></li>
       <li><a href="#contact">Contact</a></li>
-      <li><a href="#shop" class="nav-cta">Cart (0)</a></li>
+      <li><a href="#cart-panel" class="nav-cta" id="cart-link">Cart (0)</a></li>
     </ul>
   </nav>
 
@@ -50,7 +50,7 @@
           <p>Water-resistant, 12-hour battery, punchy bass for picnics and patios.</p>
           <div class="product-footer">
             <span class="price">$49.99</span>
-            <button type="button" class="btn-cart">Add to cart</button>
+            <button type="button" class="btn-cart" data-name="Sunny Bluetooth speaker" data-price="49.99">Add to cart</button>
           </div>
         </div>
       </article>
@@ -63,7 +63,7 @@
           <p>Three low-maintenance pots with a bamboo tray — workspace zen in a box.</p>
           <div class="product-footer">
             <span class="price">$34.00</span>
-            <button type="button" class="btn-cart">Add to cart</button>
+            <button type="button" class="btn-cart" data-name="Forest desk plant set" data-price="34.00">Add to cart</button>
           </div>
         </div>
       </article>
@@ -77,7 +77,7 @@
           <p>Heart rate, sleep tracking, and customizable faces in a slim metal frame.</p>
           <div class="product-footer">
             <span class="price">$129.00</span>
-            <button type="button" class="btn-cart">Add to cart</button>
+            <button type="button" class="btn-cart" data-name="Silver smart watch" data-price="129.00">Add to cart</button>
           </div>
         </div>
       </article>
@@ -90,7 +90,7 @@
           <p>Crystal calls, comfy fit, and a charging case that lasts all week.</p>
           <div class="product-footer">
             <span class="price">$79.95</span>
-            <button type="button" class="btn-cart">Add to cart</button>
+            <button type="button" class="btn-cart" data-name="Coral noise-canceling buds" data-price="79.95">Add to cart</button>
           </div>
         </div>
       </article>
@@ -103,7 +103,7 @@
           <p>Keeps drinks cold 24 hours — stainless steel, leak-proof, gym-bag ready.</p>
           <div class="product-footer">
             <span class="price">$28.50</span>
-            <button type="button" class="btn-cart">Add to cart</button>
+            <button type="button" class="btn-cart" data-name="Sky insulated bottle" data-price="28.50">Add to cart</button>
           </div>
         </div>
       </article>
@@ -117,10 +117,24 @@
           <p>Compact charcoal grill for balconies — folds flat when the party’s over.</p>
           <div class="product-footer">
             <span class="price">$89.00</span>
-            <button type="button" class="btn-cart">Add to cart</button>
+            <button type="button" class="btn-cart" data-name="Ember portable grill" data-price="89.00">Add to cart</button>
           </div>
         </div>
       </article>
+    </div>
+  </section>
+
+  <section class="cart-panel" id="cart-panel">
+    <h2 class="section-title">Your cart</h2>
+    <p class="section-sub">See what you have added and update quantity anytime.</p>
+    <div class="cart-box">
+      <ul id="cart-items" class="cart-items"></ul>
+      <p id="cart-empty" class="cart-empty">Your cart is empty. Add a product to get started.</p>
+      <div class="cart-summary">
+        <p><strong>Total items:</strong> <span id="cart-count">0</span></p>
+        <p><strong>Total price:</strong> $<span id="cart-total">0.00</span></p>
+      </div>
+      <button type="button" id="clear-cart" class="clear-cart">Clear cart</button>
     </div>
   </section>
 

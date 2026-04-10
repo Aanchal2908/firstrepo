@@ -1,3 +1,104 @@
+const cart = {};
+
+const cartItemsEl = document.getElementById("cart-items");
+const cartCountEl = document.getElementById("cart-count");
+const cartTotalEl = document.getElementById("cart-total");
+const cartEmptyEl = document.getElementById("cart-empty");
+const clearCartBtn = document.getElementById("clear-cart");
+const cartLinkEl = document.getElementById("cart-link");
+const addButtons = document.querySelectorAll(".btn-cart");
+
+function getItemCount() {
+  return Object.values(cart).reduce((sum, item) => sum + item.qty, 0);
+}
+
+function getCartTotal() {
+  return Object.values(cart).reduce((sum, item) => sum + item.qty * item.price, 0);
+}
+
+function updateCartMeta() {
+  const itemCount = getItemCount();
+  cartCountEl.textContent = String(itemCount);
+  cartTotalEl.textContent = getCartTotal().toFixed(2);
+  cartLinkEl.textContent = `Cart (${itemCount})`;
+  cartEmptyEl.style.display = itemCount === 0 ? "block" : "none";
+}
+
+function renderCart() {
+  cartItemsEl.innerHTML = "";
+  const items = Object.values(cart);
+
+  items.forEach((item) => {
+    const li = document.createElement("li");
+    li.className = "cart-item";
+    li.innerHTML = `
+      <div>
+        <h4>${item.name}</h4>
+        <p>$${item.price.toFixed(2)} each</p>
+      </div>
+      <div class="cart-item-controls">
+        <button type="button" class="qty-btn" data-action="decrease" data-name="${item.name}">-</button>
+        <span>${item.qty}</span>
+        <button type="button" class="qty-btn" data-action="increase" data-name="${item.name}">+</button>
+      </div>
+      <button type="button" class="remove-btn" data-action="remove" data-name="${item.name}">Remove</button>
+    `;
+    cartItemsEl.appendChild(li);
+  });
+
+  updateCartMeta();
+}
+
+function addToCart(name, price) {
+  if (!cart[name]) {
+    cart[name] = { name, price, qty: 0 };
+  }
+  cart[name].qty += 1;
+  renderCart();
+}
+
+function updateQty(name, action) {
+  if (!cart[name]) return;
+
+  if (action === "increase") {
+    cart[name].qty += 1;
+  } else if (action === "decrease") {
+    cart[name].qty -= 1;
+    if (cart[name].qty <= 0) {
+      delete cart[name];
+    }
+  } else if (action === "remove") {
+    delete cart[name];
+  }
+
+  renderCart();
+}
+
+addButtons.forEach((button) => {
+  button.addEventListener("click", () => {
+    const name = button.dataset.name;
+    const price = Number(button.dataset.price);
+    addToCart(name, price);
+  });
+});
+
+cartItemsEl.addEventListener("click", (event) => {
+  const target = event.target;
+  if (!(target instanceof HTMLElement)) return;
+
+  const action = target.dataset.action;
+  const name = target.dataset.name;
+  if (!action || !name) return;
+
+  updateQty(name, action);
+});
+
+clearCartBtn.addEventListener("click", () => {
+  Object.keys(cart).forEach((key) => delete cart[key]);
+  renderCart();
+});
+
+renderCart();
 const CART_STORAGE_KEY = "brightbox-cart";
 
 const cartLink = document.querySelector(".nav-cta");
