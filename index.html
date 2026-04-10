@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Simple Navbar</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: #f7f8fc;
+    }
+
+    .navbar {
+      background: #1f2937;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 14px 28px;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .brand {
+      color: #ffffff;
+      text-decoration: none;
+      font-size: 1.2rem;
+      font-weight: 700;
+    }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    .nav-links a {
+      color: #e5e7eb;
+      text-decoration: none;
+      font-size: 0.95rem;
+      padding: 6px 8px;
+      border-radius: 6px;
+      transition: background-color 0.2s ease, color 0.2s ease;
+    }
+
+    .nav-links a:hover {
+      background: #374151;
+      color: #ffffff;
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar">
+    <a href="#" class="brand">MyWebsite</a>
+    <ul class="nav-links">
+      <li><a href="#">Home</a></li>
+      <li><a href="#">About</a></li>
+      <li><a href="#">Services</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+  </nav>
+</body>
+</html>
